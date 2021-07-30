@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{name}}!</h2>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>New Blog:</h3>
+
+    <form class="form new-project-form">
+      <div class="form-group">
+        <label for="project-name">Title:</label>
+        <input class="form-input" type="text" id="project-name" name="project-name" />
+      </div>
+      <div class="form-group">
+        <label for="project-desc">Description:</label>
+        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="click" class="btn btn-primary">Create</button>
+      </div>
+    </form>
+  </div>
+
+  {{#if projects.length}}
+  <div class="col-md-6 project-list">
+    <h3>Current Blog:</h3>
+
+    {{#each projects as | project|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
+        <h6>Id</h6>
+        <p value="{{project.id}}" >{{project.id}}</p>
+      </div>
+      <div class="col-md-4">
+
+        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+      </div>
+
+
+    </div>
+   
+    {{/each}}
+  </div>
+
+  {{/if}}
+  {{!-- Edit section --}}
+
+  {{#each projects as | project |}}
+
+  {{/each}}
+   <form id="edit-form" class="card-body" value="{{project.id}}" data-id="{{project.id}}">
+     <h2>What ID do you want to update?</h2>
+
+     <label>ID</label>
+      <input name="project-id" data-id="{{project.id}}" value="{{project.id}}" >
+
+      <label>Title</label>
+      <input name ='project-name' id="p.name" value="{{project.name}}">
+
+      <label>Content</label>
+      <textarea name="project-description"  id="p.description"  value="{{project.description}}">{{project.description}}</textarea>
+
+      <button class="btn btn-sm btn-danger" id="edit" type='submit'>Edit</button>
+
+    </form>
+
+
+
+</div>
+
+<script src="./js/profile.js"></script>

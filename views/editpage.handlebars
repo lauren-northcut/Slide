@@ -1,0 +1,17 @@
+<div>
+    <div class="card-header">
+        <h3>Edit The Project</h3>
+            <form id="edit-form">
+                <input name="project-id" value="{{project.id}}">
+
+                <label>Title</label>
+                <input name='project-name' value="{{project.name}}">
+
+                <label>Content</label>
+                <textarea name="project-body">{{project.description}}</textarea>
+
+                <button type="submit">Save Edit</button>
+            </form>
+    </div>
+</div>
+
